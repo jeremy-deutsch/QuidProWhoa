@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class Draggable : MonoBehaviour {
     private bool clickedOn;
+	private Mixing chosen = null;
+	private Vector3 startingPosition;
 	
 	void Start () {
+		startingPosition = transform.position;
 	}
 	
 	void Update () {
@@ -19,6 +22,13 @@ public class Draggable : MonoBehaviour {
 	
 	void OnMouseUp () {
 		clickedOn = false;
+		transform.position = startingPosition;
+
+		if (chosen == null) {
+			return;
+		}
+
+		chosen.drop (this.GetComponent<Naming> ());
 	}
 
 	void Dragging () {
@@ -26,5 +36,17 @@ public class Draggable : MonoBehaviour {
 		
 		mouseWorldPoint.z = 0f;
 		transform.position = mouseWorldPoint;
+	}
+
+    void OnTriggerEnter2D (Collider2D other) {
+		if (other.CompareTag ("Bucket")) {
+			chosen = other.gameObject.GetComponent<Mixing>();
+		}
+    }
+
+	void OnTriggerExit2D (Collider2D other) {
+		if (other.CompareTag ("Bucket")) {
+			chosen = null;
+		}
 	}
 }
