@@ -28,7 +28,7 @@ public class Draggable : MonoBehaviour {
 			return;
 		}
 
-		chosen.drop (this.GetComponent<Naming> ());
+		chosen.Drop (this.GetComponent<Naming> ());
 	}
 
 	void Dragging () {
