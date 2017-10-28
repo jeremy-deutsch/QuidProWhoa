@@ -18,7 +18,11 @@ public class Serving : MonoBehaviour {
 	}
 
 	public void Serve () {
-		Debug.Log ("You have been served!");
-		Debug.Log (this.GetComponent<Mixing> ().GetIngredients ());
+		Mixing mix = this.GetComponent<Mixing> ();
+		Debug.Log ("You have been served:");
+		foreach (string ingredient in mix.GetIngredients()) {
+			Debug.Log (ingredient);
+		}
+		mix.ClearIngredients ();
 	}
 }
