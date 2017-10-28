@@ -8,7 +8,7 @@ public class Mixing : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		ingredients = new List<string> ();
+		this.ClearIngredients ();
 	}
 	
 	// Update is called once per frame
@@ -23,5 +23,9 @@ public class Mixing : MonoBehaviour {
 
 	public List<string> GetIngredients () {
 		return ingredients;
+	}
+
+	public void ClearIngredients () {
+		ingredients = new List<string> ();
 	}
 }
