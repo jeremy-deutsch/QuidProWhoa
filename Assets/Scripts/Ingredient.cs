@@ -59,6 +59,8 @@ public class Ingredient : Draggable {
 	private Quaternion normalAngle;
 	private bool turningRight = false;
 	private float rotationTolerance = 0f;
+	private SpriteRenderer spriteRenderer;
+	private string originalSortingLayerName;
 
 	private float negativeTurningAllowance;
 	private float turningFrequencyTimesTurningAllowance;
@@ -70,6 +72,9 @@ public class Ingredient : Draggable {
 		if (ingredientSprites == null) {
 			ingredientSprites = new IngredientSprites ();
 		}
+
+		spriteRenderer = this.GetComponent <SpriteRenderer> ();
+		originalSortingLayerName = spriteRenderer.sortingLayerName;
 
 		this.SetData ();
 		transform.rotation = normalAngle;
@@ -96,17 +101,21 @@ public class Ingredient : Draggable {
 					turningRight = true;
 				}
 			}
+			if (spriteRenderer.sortingLayerName == originalSortingLayerName) {
+				spriteRenderer.sortingLayerName = "Interactables";
+			}
 		}
 	}
 
 	protected override void OnMouseUp () {
 		transform.rotation = normalAngle;
+		spriteRenderer.sortingLayerName = originalSortingLayerName;
 		base.OnMouseUp ();
 	}
 
 	private void SetData() {
 		data = IngredientData.GetRandomIngredient ();
-		this.GetComponent<SpriteRenderer> ().sprite = ingredientSprites.GetSpriteFromName (data.name);
+		this.spriteRenderer.sprite = ingredientSprites.GetSpriteFromName (data.name);
 	}
 
 	protected override void DroppedOn (Mixing other) {

@@ -42,3 +42,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Backdrop
+    uniqueID: 617725119
+    locked: 0
+  - name: On Shelf
+    uniqueID: 4275151855
+    locked: 0
+  - name: Barb
+    uniqueID: 114875391
+    locked: 0
+  - name: Bar
+    uniqueID: 2789822859
+    locked: 0
+  - name: On Bar
+    uniqueID: 2215056331
+    locked: 0
+  - name: Interactables
+    uniqueID: 1407617107
+    locked: 0
+  - name: UI
+    uniqueID: 3841888323
+    locked: 0
