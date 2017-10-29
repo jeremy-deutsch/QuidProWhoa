@@ -6,10 +6,16 @@ public class Drink : MonoBehaviour {
 	private Element element;
 	private List<Buffs> buffs;
 
-	public Drink(string name, Element element, List<Buffs> buffs) {
-		this.name = name;
+	public Drink(Element element, List<IngredientData> ingredients) {
+		this.name = "";
 		this.element = element;
-		this.buffs = buffs;
+		this.buffs = new List<Buffs> ();
+
+		foreach (IngredientData ingredient in ingredients) {
+			this.buffs.Add (ingredient.buff);
+			this.name += " " + ingredient.name;
+		}
+		this.name += " Tonic";
 	}
 
 	// Use this for initialization
