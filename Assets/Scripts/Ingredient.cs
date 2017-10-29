@@ -58,8 +58,8 @@ public class Ingredient : Draggable {
 	}
 
 	protected override void DroppedOn (Mixing other) {
+		other.Drop (this.data);
 		this.SetData ();
 		this.ResetPosition ();
-		other.Drop (this.data);
 	}
 }
