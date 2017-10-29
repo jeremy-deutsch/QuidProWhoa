@@ -1,38 +1,40 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Draggable : MonoBehaviour {
-    private bool clickedOn;
-	private Mixing chosen = null;
+public abstract class Draggable : MonoBehaviour {
+    
+	private bool clickedOn;
+	private Mixing bucket = null;
 	private Vector3 startingPosition;
+	private Vector3 offset;
 	
-	void Start () {
+	protected virtual void Start () {
 		startingPosition = transform.position;
 	}
 	
 	void Update () {
-		if (clickedOn) {
-			Dragging ();
-        }
+
 	}
 	
 	void OnMouseDown () {
+		offset = this.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		clickedOn = true;
 	}
 	
 	void OnMouseUp () {
 		clickedOn = false;
-		transform.position = startingPosition;
 
-		if (chosen == null) {
+		if (bucket == null) {
+			ResetPosition ();
 			return;
 		}
 
-		chosen.Drop (this.GetComponent<Naming> ());
+		// bucket.Drop (this.GetComponent<Naming> ());
+		DroppedOn (bucket);
 	}
 
-	void Dragging () {
-		Vector3 mouseWorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+	void OnMouseDrag () {
+		Vector3 mouseWorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
 		
 		mouseWorldPoint.z = 0f;
 		transform.position = mouseWorldPoint;
@@ -40,13 +42,24 @@ public class Draggable : MonoBehaviour {
 
     void OnTriggerEnter2D (Collider2D other) {
 		if (other.CompareTag ("Bucket")) {
-			chosen = other.gameObject.GetComponent<Mixing>();
+			bucket = other.gameObject.GetComponent<Mixing>();
 		}
     }
 
 	void OnTriggerExit2D (Collider2D other) {
 		if (other.CompareTag ("Bucket")) {
-			chosen = null;
+			bucket = null;
 		}
+	}
+
+	protected bool isBeingDragged () {
+		return clickedOn;
+	}
+
+	// DroppedOn should not necessarily do anything
+	protected virtual void DroppedOn (Mixing other) {}
+
+	protected void ResetPosition () {
+		transform.position = startingPosition;
 	}
 }
