@@ -1,0 +1,14 @@
+{
+    "ingredients": [
+        {
+            "name": "unicorn",
+            "imgName": "the_last_unicorn_by_nyaasu-d5n3mrz",
+            "buff": "STR"
+        },
+        {
+            "name": "eyeball",
+            "imgName": "eyeball",
+            "buff": "INT"
+        }
+    ]
+}

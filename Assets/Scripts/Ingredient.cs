@@ -1,12 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.IO;
+using System.Collections;
 using UnityEngine;
 
 public class Ingredient : Draggable {
+	private IngredientData data;
+	public static IngredientSprites ingredientSprites;
 
 	// Use this for initialization
 	protected override void Start () {
 		base.Start ();
+		data = IngredientData.GetRandomIngredient ();
+
+		this.GetComponent<SpriteRenderer> ().sprite = ingredientSprites.getSpriteFromName (data.imgName);
 	}
 	
 	// Update is called once per frame
