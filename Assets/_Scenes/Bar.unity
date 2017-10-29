@@ -173,7 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a01e3d1510e46189f50d73af11771c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starRating: {fileID: 1298641190}
+  customerInfo: {fileID: 1760067853}
+  reviews: {fileID: 336704405}
 --- !u!4 &57488338
 Transform:
   m_ObjectHideFlags: 0
@@ -648,6 +649,47 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 361143293c1b541e0be80bd9b8694810, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &336704404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 336704406}
+  - component: {fileID: 336704405}
+  m_Layer: 0
+  m_Name: Reviews
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &336704405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 336704404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f733b6c9d62054aa79d23957813e4a1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starRating: {fileID: 1298641190}
+--- !u!4 &336704406
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 336704404}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.0098815, y: 1.1542332, z: 11.914498}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &383140308
 GameObject:
   m_ObjectHideFlags: 0

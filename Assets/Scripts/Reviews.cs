@@ -91,11 +91,38 @@ public class Reviews : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		starRating.fillAmount = (float) 3.0 / 5;
+
+		this.starRating.type = Image.Type.Filled;
+		this.starRating.fillMethod = Image.FillMethod.Horizontal;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void WriteReview (int stars) {
+		switch (stars) {
+		case 5:
+			Debug.Log ("Super satisfied");
+			break;
+		case 3:
+			Debug.Log ("Passable");
+			break;
+		case 1:
+			Debug.Log ("Abysmal");
+			break;
+		default:
+			Debug.Log ("Error");
+			break;
+		}
+
+		totalCustomers++;
+		totalStars += stars;
+		averageRating = (float) totalStars / (totalCustomers * 5.0f);
+		starRating.fillAmount = averageRating;
+		Debug.Log (totalStars);
+		Debug.Log (totalCustomers);
 	}
 }
