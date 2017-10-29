@@ -45,7 +45,6 @@ public class AllIngredients {
 	public static IngredientData[] GetAllIngredients() {
 		string dataAsJson = File.ReadAllText ("Assets/JSON/ingredients.json"); 
 		AllIngredients ret = JsonUtility.FromJson<AllIngredients> (dataAsJson);
-		Debug.Log (ret.ingredients[1].name);
 		return ret.ingredients;
 	}
 }

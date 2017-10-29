@@ -8,6 +8,8 @@ public class BlowTorch : MonoBehaviour {
 
 	private bool flaming = false;
 
+	private Mixing mix;
+
 	
 	// Update is called once per frame
 	void Update() {
@@ -33,6 +35,7 @@ public class BlowTorch : MonoBehaviour {
 			}else if (counter >= 6) {
 				counter += Time.deltaTime;
 				Debug.Log ("Done Heating");
+				mix.Action (Element.Fire);
 			}
 		}
 	}
@@ -40,6 +43,10 @@ public class BlowTorch : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.CompareTag ("Bucket")) {
 			flaming = true;
+
+			if (mix == null) {
+				mix = other.GetComponent<Mixing> ();
+			}
 		}
 
 	}

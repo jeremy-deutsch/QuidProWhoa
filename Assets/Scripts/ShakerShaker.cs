@@ -32,6 +32,7 @@ public class ShakerShaker : Draggable {
 		clickedOn = false;
 		if (distanceTraveled > howFarToShake) {
 			Debug.Log ("Shook enough: " + (int)distanceTraveled);
+			mixingBowl.Action (Element.Air);
 		}
 		distanceTraveled = 0f;
 		lastPlace = Vector3.zero;

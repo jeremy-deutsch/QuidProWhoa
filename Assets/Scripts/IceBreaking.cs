@@ -6,6 +6,7 @@ public class IceBreaking : MonoBehaviour {
 
 	public GameObject draggingIce;
 	public Sprite[] breakingIce;
+	public Mixing mixingBowl;
 
 	private int counter = 0;
 
@@ -22,8 +23,8 @@ public class IceBreaking : MonoBehaviour {
 			GetComponent <SpriteRenderer>().sprite = breakingIce [counter];// Resources.Load<Sprite>("ice" + counter);
 		} else if (counter >= 5) {
 			Debug.Log ("Added Ice");
+			mixingBowl.Action (Element.Ice);
 			counter = 0;
-			// TODO: actually add ice
 			draggingIce.GetComponent <IceDragger>().ResetPosition ();
 			draggingIce.SetActive (true);
 			this.gameObject.SetActive (false);

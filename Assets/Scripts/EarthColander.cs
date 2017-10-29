@@ -28,6 +28,7 @@ public class EarthColander : Draggable {
 					wentLeft = false;
 					if (shakes == enoughShakes) {
 						Debug.Log ("You shook it!");
+						mixContainer.Action (Element.Earth);
 					}
 				} else if (!wentLeft && transform.position.x < lastPlace.x) {
 					Debug.Log ("Shook left");
@@ -35,6 +36,7 @@ public class EarthColander : Draggable {
 					wentLeft = true;
 					if (shakes == enoughShakes) {
 						Debug.Log ("You shook it!");
+						mixContainer.Action (Element.Earth);
 					}
 				}
 

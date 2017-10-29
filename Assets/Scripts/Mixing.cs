@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Mixing : MonoBehaviour {
 	private List<IngredientData> ingredients;
-	
+	private Element element;
+	private bool finishedMixing = false;
+	public Button yourButton;
+	public Drink drink;
 
 	// Use this for initialization
 	void Start () {
+		Button btn = yourButton.GetComponent<Button>();
+		btn.onClick.AddListener(Mix);
 		this.ClearIngredients ();
 	}
 	
@@ -20,6 +27,11 @@ public class Mixing : MonoBehaviour {
 		ingredients.Add (ingredient);
 	}
 
+	public void Action (Element element) {
+		this.element = element;
+		finishedMixing = true;
+	}
+
 	public List<IngredientData> GetIngredients () {
 		return ingredients;
 	}
@@ -29,18 +41,14 @@ public class Mixing : MonoBehaviour {
 	}
 
 	public void Mix() {
-		Element element = Element.Air;
-		this.Mix (element);
-	}
-
-	public void Mix(Element element) {
+		if (!finishedMixing) {
+			Debug.Log ("Must perform action on mixing bowl first");
+			return;
+		}
+		Debug.Log (this.element);
 		Mixing mix = this.GetComponent<Mixing> ();
 		List<IngredientData> ingredients = mix.GetIngredients ();
-		Debug.Log ("You have been served:");
-		foreach (IngredientData ingredient in ingredients) {
-			Debug.Log (ingredient.name);
-			Debug.Log (ingredient.buff);
-		}
-		mix.ClearIngredients ();
+		drink.Mix(this.element, this.ingredients);
+		ClearIngredients ();
 	}
 }
