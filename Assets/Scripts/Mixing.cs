@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Mixing : MonoBehaviour {
-	private List<string> ingredients;
+	private List<IngredientData> ingredients;
 	
 
 	// Use this for initialization
@@ -16,16 +16,15 @@ public class Mixing : MonoBehaviour {
 		
 	}
 
-	public void Drop (Naming ingredient) {
-		Debug.Log (ingredient.name);
-		ingredients.Add (ingredient.name);
+	public void Drop (IngredientData ingredient) {
+		ingredients.Add (ingredient);
 	}
 
-	public List<string> GetIngredients () {
+	public List<IngredientData> GetIngredients () {
 		return ingredients;
 	}
 
 	public void ClearIngredients () {
-		ingredients = new List<string> ();
+		ingredients = new List<IngredientData> ();
 	}
 }

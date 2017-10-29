@@ -9,9 +9,8 @@ public class Ingredient : Draggable {
 	// Use this for initialization
 	protected override void Start () {
 		base.Start ();
-		data = IngredientData.GetRandomIngredient ();
 
-		this.GetComponent<SpriteRenderer> ().sprite = ingredientSprites.GetSpriteFromName (data.name);
+		this.SetData ();
 	}
 	
 	// Update is called once per frame
@@ -19,8 +18,14 @@ public class Ingredient : Draggable {
 		
 	}
 
+	private void SetData() {
+		data = IngredientData.GetRandomIngredient ();
+		this.GetComponent<SpriteRenderer> ().sprite = ingredientSprites.GetSpriteFromName (data.name);
+	}
+
 	protected override void DroppedOn (Mixing other) {
+		this.SetData ();
 		this.ResetPosition ();
-		other.Drop (this.GetComponent<Naming> ());
+		other.Drop (this.data);
 	}
 }

@@ -4,20 +4,16 @@ public class IngredientSprites : MonoBehaviour
 {
 	private Object[] sprites;
 
-	void Start() {
+	void Awake() {
 		sprites = Resources.LoadAll("IngredientSprites", typeof(Sprite));
-
-		foreach (Sprite s in sprites) {
-			Debug.Log(s.name);
-		}
-
 		Ingredient.ingredientSprites = this;
 	}
 
+	void Start() {
+	}
+
 	public Sprite GetSpriteFromName(string name) {
-		Debug.Log (name);
 		foreach (Sprite s in sprites) {
-			Debug.Log (s.name);
 			if (s.name == name) {
 				return s;
 			}

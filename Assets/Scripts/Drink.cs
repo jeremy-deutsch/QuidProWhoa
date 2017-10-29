@@ -6,6 +6,12 @@ public class Drink : MonoBehaviour {
 	private Element element;
 	private List<Buffs> buffs;
 
+	public Drink(string name, Element element, List<Buffs> buffs) {
+		this.name = name;
+		this.element = element;
+		this.buffs = buffs;
+	}
+
 	// Use this for initialization
 	void Start () {
 		
