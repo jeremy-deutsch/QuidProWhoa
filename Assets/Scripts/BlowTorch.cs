@@ -12,10 +12,26 @@ public class BlowTorch : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		if (flaming) {
-			if (counter <= 5) {
+			if (counter <= 4) {
 				counter += Time.deltaTime;
 				Debug.Log ("mouse is being held" + counter);
-			} else if (counter > 5) {
+			}else if (counter > 4) {
+				counter += Time.deltaTime;
+				if (counter < 4.5) {
+					counter += Time.deltaTime;
+					GetComponent <SpriteRenderer> ().sprite = Resources.Load<Sprite> ("fire" + 1);
+					Debug.Log ("mouse is being held" + counter);
+				}else if (counter < 5) {
+					counter += Time.deltaTime;
+					GetComponent <SpriteRenderer> ().sprite = Resources.Load<Sprite> ("fire" + 2);
+					Debug.Log ("mouse is being held" + counter);
+				}else if (counter < 5.5) {
+					counter += Time.deltaTime;
+					GetComponent <SpriteRenderer> ().sprite = Resources.Load<Sprite> ("fire" + 3);
+					Debug.Log ("mouse is being held" + counter);
+				}
+			}else if (counter >= 6) {
+				counter += Time.deltaTime;
 				Debug.Log ("Done Heating");
 			}
 		}
