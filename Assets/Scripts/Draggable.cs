@@ -60,7 +60,7 @@ public abstract class Draggable : MonoBehaviour {
 	// DroppedOn should not necessarily do anything
 	protected virtual void DroppedOn (Mixing other) {}
 
-	protected void ResetPosition () {
+	public void ResetPosition () {
 		transform.position = startingPosition;
 	}
 }

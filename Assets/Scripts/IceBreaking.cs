@@ -4,17 +4,29 @@ using UnityEngine;
 
 public class IceBreaking : MonoBehaviour {
 
+	public GameObject draggingIce;
+	public Sprite[] breakingIce;
+
 	private int counter = 0;
+
+	void Awake() {
+		this.gameObject.SetActive (false);
+	}
 
 	void OnMouseDown() {
 
-		if(Input.GetMouseButtonDown(0)) {
-			counter++;
-			Debug.Log ("hit "+counter);
-		}
+		counter++;
+		Debug.Log ("hit " + counter);
 
-		if(counter <= 3) {
-			GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("ice" + counter);
+		if(counter < breakingIce.Length) {
+			GetComponent <SpriteRenderer>().sprite = breakingIce [counter];// Resources.Load<Sprite>("ice" + counter);
+		} else if (counter >= 5) {
+			Debug.Log ("Added Ice");
+			counter = 0;
+			// TODO: actually add ice
+			draggingIce.SetActive (true);
+			draggingIce.GetComponent <IceDragger>().ResetPosition ();
+			this.gameObject.SetActive (false);
 		}
 	}
 

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class IceDragger : Draggable {
 
+	public GameObject breakingIce;
+
 	protected override void DroppedOn (Mixing other) {
-		transform.position = other.transform.position + new Vector3 (0f, 0.5f);
-		// TODO: Initiate ice cracking
-		this.enabled = false; // disable the Draggable script
+		breakingIce.SetActive (true);
+		this.gameObject.SetActive (false);
 	}
 }
