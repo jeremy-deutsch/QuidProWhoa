@@ -1,16 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.IO;
 using UnityEngine;
 
-public class MelpReviewData : MonoBehaviour {
+[System.Serializable]
+public class MelpReviewData {
+	private static MelpReviewData[] allReviews;
+	private static int counter = -1;
 
-	// Use this for initialization
-	void Start () {
-		
+	public string name;
+	public Buffs buff;
+
+	public static MelpReviewData GetRandomReview() {
+		if (allReviews == null) {
+			allReviews = AllReviews.GetAllReviews ();
+		}
+		counter = (counter + 1) % 2;
+
+		return allReviews [counter];
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+}
+
+[System.Serializable]
+public class AllReviews {
+	public MelpReviewData[] reviews;
+
+	public static MelpReviewData[] GetAllReviews() {
+		string dataAsJson = File.ReadAllText ("Assets/JSON/reviews.json"); 
+		AllReviews ret = JsonUtility.FromJson<AllReviews> (dataAsJson);
+		Debug.Log (ret.reviews[1].name);
+		return ret.reviews;
 	}
 }
