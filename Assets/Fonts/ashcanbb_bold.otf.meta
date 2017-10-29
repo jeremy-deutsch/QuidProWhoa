@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a32dbf4705b6de941887bdce7c9246fb
+timeCreated: 1509299200
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Ashcan BB
+  fontNames:
+  - Ashcan BB
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
