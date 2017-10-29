@@ -44,6 +44,8 @@ public class Customer : MonoBehaviour {
 		desiredElement = (Element)Random.Range(0, System.Enum.GetValues(typeof(Element)).Length);
 		Debug.Log (desiredElement);
 
+		string info = " " + desiredElement;
+
 		desiredBuffs = new List<Buffs> ();
 		for (int i = 0; i < 2; i++) {
 			Buffs randomBuff = (Buffs)Random.Range (0, System.Enum.GetValues (typeof(Buffs)).Length);
@@ -51,7 +53,8 @@ public class Customer : MonoBehaviour {
 		}
 
 		foreach (Buffs buff in desiredBuffs) {
-			Debug.Log (buff);
+			info += "\n " + buff;
 		}
+		customerInfo.text = info;
 	}
 }

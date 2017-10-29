@@ -84,6 +84,7 @@ public class AllReviews {
 
 public class Reviews : MonoBehaviour {
 	public Image starRating;
+	public Text melpText;
 
 	private int totalStars;
 	private int totalCustomers;
@@ -124,5 +125,7 @@ public class Reviews : MonoBehaviour {
 		starRating.fillAmount = averageRating;
 		Debug.Log (totalStars);
 		Debug.Log (totalCustomers);
+
+		//melpText.text = MelpReviewData.GetRandomReview (stars).description;
 	}
 }
