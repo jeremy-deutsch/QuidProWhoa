@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 114310606207309826}
   - component: {fileID: 61408617424327924}
   - component: {fileID: 50009091309595978}
-  - component: {fileID: 114833509013689226}
   - component: {fileID: 212856883005374736}
   m_Layer: 0
   m_Name: Ingridient
@@ -87,18 +86,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e94a630cf504f45b7c54519033f09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114833509013689226
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1262902192287918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a07842aa8f87b42f79cbc7080f39679e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Whiskey
+  turningFrequency: 6
+  turningAllowance: 2
 --- !u!212 &212856883005374736
 SpriteRenderer:
   m_ObjectHideFlags: 1
