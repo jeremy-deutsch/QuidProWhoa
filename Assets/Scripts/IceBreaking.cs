@@ -24,8 +24,8 @@ public class IceBreaking : MonoBehaviour {
 			Debug.Log ("Added Ice");
 			counter = 0;
 			// TODO: actually add ice
-			draggingIce.SetActive (true);
 			draggingIce.GetComponent <IceDragger>().ResetPosition ();
+			draggingIce.SetActive (true);
 			this.gameObject.SetActive (false);
 		}
 	}

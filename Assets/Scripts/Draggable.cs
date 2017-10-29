@@ -3,17 +3,14 @@ using UnityEngine;
 
 public abstract class Draggable : MonoBehaviour {
     
-	private bool clickedOn;
+	protected bool clickedOn;
+	protected Vector3 startingPosition;
+
 	private Mixing bucket = null;
-	private Vector3 startingPosition;
 	private Vector3 offset;
 	
 	protected virtual void Start () {
 		startingPosition = transform.position;
-	}
-	
-	void Update () {
-
 	}
 	
 	void OnMouseDown () {
@@ -21,7 +18,7 @@ public abstract class Draggable : MonoBehaviour {
 		clickedOn = true;
 	}
 	
-	void OnMouseUp () {
+	protected virtual void OnMouseUp () {
 		clickedOn = false;
 
 		if (bucket == null) {
@@ -51,10 +48,6 @@ public abstract class Draggable : MonoBehaviour {
 		if (other.CompareTag ("Bucket")) {
 			bucket = null;
 		}
-	}
-
-	protected bool isBeingDragged () {
-		return clickedOn;
 	}
 
 	// DroppedOn should not necessarily do anything
