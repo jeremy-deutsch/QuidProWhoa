@@ -6,7 +6,7 @@ public class BlowTorch : MonoBehaviour {
 
 	private float counter = 0.0f;
 
-	//bool flaming = false;
+	private bool flaming = false;
 
 	// Use this for initialization
 	void Start () {
@@ -14,26 +14,23 @@ public class BlowTorch : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void OnMouseEnter () {
-		Debug.Log ("Entered");
-		if (Input.GetKey (KeyCode.Space)) {
-			Debug.Log ("space is being pressed");
-		}
-
-	}	
-	/*
 	void Update() {
 		if (flaming) {
-			counter += Time.fixedDeltaTime;
+			counter += Time.deltaTime;
 			Debug.Log ("mouse is being held" + counter);
 		}
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
-		flaming = true;
+		if (other.CompareTag ("Bucket")) {
+			flaming = true;
+		}
+
 	}
 
 	void OnTriggerExit2D (Collider2D other) {
-
-	}*/
+		if (other.CompareTag ("Bucket")) {
+			flaming = false;
+		}
+	}
 }
