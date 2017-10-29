@@ -39,6 +39,7 @@ public class Draggable : MonoBehaviour {
 	}
 
     void OnTriggerEnter2D (Collider2D other) {
+		Debug.Log ("triggered");
 		if (other.CompareTag ("Bucket")) {
 			chosen = other.gameObject.GetComponent<Mixing>();
 		}
