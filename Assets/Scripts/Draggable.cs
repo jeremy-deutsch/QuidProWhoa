@@ -9,6 +9,8 @@ public abstract class Draggable : MonoBehaviour {
 	private Mixing bucket = null;
 	private Vector3 offset;
 	private Vector3 normalSize;
+
+	private Vector3 normalGobletSize;
 	
 	protected virtual void Start () {
 		startingPosition = transform.position;
