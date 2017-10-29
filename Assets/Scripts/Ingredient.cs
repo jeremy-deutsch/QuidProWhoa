@@ -116,6 +116,8 @@ public class Ingredient : Draggable {
 	private void SetData() {
 		data = IngredientData.GetRandomIngredient ();
 		this.spriteRenderer.sprite = ingredientSprites.GetSpriteFromName (data.name);
+		Vector3 newSize = spriteRenderer.sprite.bounds.size;
+		GetComponent <BoxCollider2D> ().size = new Vector2 (newSize.x, newSize.y);
 	}
 
 	protected override void DroppedOn (Mixing other) {
