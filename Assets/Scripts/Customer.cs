@@ -1,13 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Customer : MonoBehaviour {
+	public Image starRating;
 	private Element desiredElement;
 	private List<Buffs> desiredBuffs;
 
+	private int totalStars;
+	private int totalCustomers;
+	private float averageRating;
+
 	// Use this for initialization
 	void Start () {
+		starRating.fillAmount = (float) 3.0 / 5;
+
+		this.starRating.type = Image.Type.Filled;
+		this.starRating.fillMethod = Image.FillMethod.Horizontal;
 		this.Enter ();
 	}
 
@@ -45,6 +55,13 @@ public class Customer : MonoBehaviour {
 			Debug.Log ("Error");
 			break;
 		}
+
+		totalCustomers++;
+		totalStars += stars;
+		averageRating = (float) totalStars / (totalCustomers * 5.0f);
+		starRating.fillAmount = averageRating;
+		Debug.Log (totalStars);
+		Debug.Log (totalCustomers);
 
 		this.Enter ();
 	}
