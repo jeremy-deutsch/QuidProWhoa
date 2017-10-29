@@ -8,16 +8,31 @@ public abstract class Draggable : MonoBehaviour {
 
 	private Mixing bucket = null;
 	private Vector3 offset;
+	private Vector3 normalSize;
 	
 	protected virtual void Start () {
 		startingPosition = transform.position;
+		normalSize = transform.localScale;
 	}
-	
+
+	void OnMouseEnter () {
+		if (!clickedOn) {
+			transform.localScale = normalSize * 1.2f;
+		}
+	}
+
+	void OnMouseExit () {
+		if (!clickedOn) {
+			transform.localScale = normalSize;
+		}
+	}
+
 	void OnMouseDown () {
 		offset = this.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		transform.localScale = normalSize * 0.9f;
 		clickedOn = true;
 	}
-	
+
 	protected virtual void OnMouseUp () {
 		clickedOn = false;
 
@@ -55,5 +70,6 @@ public abstract class Draggable : MonoBehaviour {
 
 	public void ResetPosition () {
 		transform.position = startingPosition;
+		transform.localScale = normalSize;
 	}
 }
