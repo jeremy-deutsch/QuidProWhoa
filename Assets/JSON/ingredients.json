@@ -1,12 +1,76 @@
 {
     "ingredients": [
         {
-            "name": "unicorn",
-            "buff": "STR"
-        },
+            "name": "brewbon", 
+            "buff": "COUR"
+        }, 
         {
-            "name": "eyeball",
+            "name": "cayenne", 
+            "buff": "COUR"
+        }, 
+        {
+            "name": "eye of newt", 
+            "buff": "STA"
+        }, 
+        {
+            "name": "ginger", 
             "buff": "INT"
+        }, 
+        {
+            "name": "ginnie in a bottle", 
+            "buff": "COUR"
+        }, 
+        {
+            "name": "grave dirt", 
+            "buff": "INT"
+        }, 
+        {
+            "name": "griffin feathers", 
+            "buff": "INT"
+        }, 
+        {
+            "name": "griffin toenails", 
+            "buff": "SPE"
+        }, 
+        {
+            "name": "hisskey", 
+            "buff": "COUR"
+        }, 
+        {
+            "name": "lavodka", 
+            "buff": "SPE"
+        }, 
+        {
+            "name": "mermaid", 
+            "buff": "STA"
+        }, 
+        {
+            "name": "minotaur boogers", 
+            "buff": "SPE"
+        }, 
+        {
+            "name": "phoenix feathers", 
+            "buff": "STA"
+        }, 
+        {
+            "name": "red rum", 
+            "buff": "CHA"
+        }, 
+        {
+            "name": "rosemary", 
+            "buff": "STR"
+        }, 
+        {
+            "name": "salt", 
+            "buff": "INT"
+        }, 
+        {
+            "name": "tekillya", 
+            "buff": "STA"
+        }, 
+        {
+            "name": "unicorn blood", 
+            "buff": "STR"
         }
     ]
 }

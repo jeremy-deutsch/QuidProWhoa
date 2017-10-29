@@ -32,7 +32,7 @@ public class IngredientData {
 		if (allIngredients == null) {
 			allIngredients = AllIngredients.GetAllIngredients ();
 		}
-		counter = (counter + 1) % 2;
+		counter = (counter + 1) % allIngredients.Length;
 
 		return allIngredients [counter];
 	}
