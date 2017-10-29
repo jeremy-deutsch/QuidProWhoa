@@ -11,7 +11,7 @@ public class Ingredient : Draggable {
 		base.Start ();
 		data = IngredientData.GetRandomIngredient ();
 
-		this.GetComponent<SpriteRenderer> ().sprite = ingredientSprites.getSpriteFromName (data.imgName);
+		this.GetComponent<SpriteRenderer> ().sprite = ingredientSprites.GetSpriteFromName (data.name);
 	}
 	
 	// Update is called once per frame

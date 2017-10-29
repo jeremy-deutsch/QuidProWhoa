@@ -14,8 +14,10 @@ public class IngredientSprites : MonoBehaviour
 		Ingredient.ingredientSprites = this;
 	}
 
-	public Sprite getSpriteFromName(string name) {
+	public Sprite GetSpriteFromName(string name) {
+		Debug.Log (name);
 		foreach (Sprite s in sprites) {
+			Debug.Log (s.name);
 			if (s.name == name) {
 				return s;
 			}
