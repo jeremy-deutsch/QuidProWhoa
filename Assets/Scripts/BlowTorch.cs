@@ -8,16 +8,16 @@ public class BlowTorch : MonoBehaviour {
 
 	private bool flaming = false;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update() {
 		if (flaming) {
-			counter += Time.deltaTime;
-			Debug.Log ("mouse is being held" + counter);
+			if (counter <= 5) {
+				counter += Time.deltaTime;
+				Debug.Log ("mouse is being held" + counter);
+			} else if (counter > 5) {
+				Debug.Log ("Done Heating");
+			}
 		}
 	}
 
