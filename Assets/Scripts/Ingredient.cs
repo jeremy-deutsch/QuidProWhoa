@@ -72,6 +72,7 @@ public class Ingredient : Draggable {
 		}
 
 		this.SetData ();
+		transform.rotation = normalAngle;
 
 		negativeTurningAllowance = turningAllowance * -1f;
 		turningFrequencyTimesTurningAllowance = turningFrequency * turningAllowance;
