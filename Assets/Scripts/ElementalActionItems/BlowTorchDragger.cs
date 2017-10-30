@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BlowTorchDragger : Draggable {
 	protected override void DroppedOn (Mixing other) {
+		Debug.Log ("dropped on");
 		ResetPosition ();
 	}
 

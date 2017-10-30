@@ -6,11 +6,17 @@ public class ShakerDragger : Draggable {
 
 	public ShakerShaker actualShaker;
 
+	void OnEnable () {
+		//actualShaker.gameObject.SetActive (false);
+	}
+
 	protected override void DroppedOn (Mixing other) {
 		transform.position = other.transform.position + new Vector3 (0f, 0.5f);
-		// TODO: Initiate shaking
+		// Initiate shaking
 		actualShaker.SetMixing (other);
 		actualShaker.gameObject.SetActive (true);
 		this.gameObject.SetActive (false); // disable the Draggable script
+		ResetPosition ();
+		other.EnableOnMix (this.gameObject);
 	}
 }

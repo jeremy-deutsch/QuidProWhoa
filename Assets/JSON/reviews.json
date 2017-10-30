@@ -1,38 +1,97 @@
 ﻿{
-"oneStarReviews":[
-"The dragon MURDERED ME. My soul went to heaven, and luckily, there was a quill and parchment, and the first thing my ascended soul decided to do was WRITE THIS SCATHING REVIEW. Bad job.",
-"GRAAAAAWWWRRRRR RRRRGGGHHHH HRGABLUURGH (I died and joined the army of the undead. 1 star.)",
-"I write to you a widow. Your potion killed my spouse!! Hope you have enough money to cover the funeral cost.",
-"First.",
-"Gross drinks, server smells weird, plus, I've been hospitalized for 1,562 years because the potion exploded in my face!!!",
-"I didn't know these drinks had alcohol in them.",
-"Server rejected me. Lich King rejected my living essence harder.",
-"Had to pay extra at the end for service!! What's that nonsense? The potion was mixed so poorly, it melted into a thousand spiders right on my tongue! Will never recover from the trauma!!",
-"Drink was delicious, design was ambitious... Potion was malicious. One star. Buy my mixtape.",
-"I wanted crab cakes. I got crabs. But what made me give this dive bar 1 star? Mostly the crabs. Also, no crab cakes on the menu!"
-],
-"threeStarReviews": [
-"The dragon took me gatdamn eyebrows! But I'm still alive and aimin’ to collect that gold and save the world. So thats cool.",
-"I pray to heaven every night and day that the infection won't spread. The bite grows blacker. It grows fouler. But the loss of one limb won't stop this hero! Maybe two..  But not one!",
-"Was expecting a WoW factor... What I got was a MEH factor (More Extra Healing, Please). I guess that's a MEHP factor...",
-"Drink was... Absolutely disgusting. So bad, when I offered some to my cat, she didn't want any! And she loves to drink. Its a problem. Made me super jacked though.",
-"I wanted something that would help me slay the Double Headed Ogre, Jim and Joe! Instead, I was so incredibly powerful... We fell in love! So. Not what I wanted... But I'm happy.",
-"I compromise in neither style, nor grace!! Nor comfort!! Nor ease!! But this place made me! I had to compromise in ease!! But not style!! Nor grace!! So. I compromised on the score!!",
-"Dear Lordy Doody Howdy Lordy Doody Howdy Lordy Doody HOOWDY Doody Lordy! Very ok.",
-"My kid is underaged, and when I tried to punish them for drinking at your bar... They shot me with a magic bolt! I guess your potion did what it was supposed to do.... But was it worth it?",
-"Quid Pro Quo will upgrade score to 5 for $5. K thnx.",
-"Potion did its job. Fought chimera after chimera. Then I broke out in hives. Literal bee hives. My body is a vibrating eldritch horror."
-],
-"fiveStarReviews": [
-"The look on that dragons face HOWDY DOODY I ain't never got such satisfaction! Kicked his scaley sit-cushions several ways to Sunday!",
-"I have never had a more valiant, gallant, graceful, courageous, outrageous, bodacious... I've run out of adjectives. But you get the idea! Good job, Barb!",
-"I deliver hot rhymes at a discounted rate, but this place deserves an EIGHT! Bummer the scale only slides to a five... Love... Clive???",
-"Potion made me buff. Got me swol. Absolutely yolked. Pursued them sick gains. I LITERALLY punched the butt off a Goblin King. Cool.",
-"GG",
-"Literally, I have never been to a more amazing bar and LITERALLY I have never had a more amazing drink and LITERALLY I have never had a more INTENSE FIGHT WITH MY OWN INNER DEMONS! And literally? 5 stars.",
-"I had a great drink and really enjoy overpraising!!! And exclamation points!!! So, fantastic job Barb!! The drink was delicious!! It did exactly what it was supposed to do!!! And then some!!! I'll be back again!!",
-"I see you. The secret puppet master pulling the strings. I see you pressing away at your buttons, the digital world reflected in your eyes. I commend you... Not only for trying... But for being truly alive...",
-"Noice noice noice noice noice NOICE NOICE NOICE NOICE NOICE NOICE TIGHT TIGHT TIGHT TIGHT TIIIIIIGHT TIGHT TIGHT noice.",
-"I made a Quid Pro Woah account just to post this, and all I have to say is... 5 stars... 5 big ol thumbs up. I have a hand entirely made of thumbs. All of them love you. I love you."
-]
+    "oneStarReviews": [
+        {
+            "description": "The dragon MURDERED ME. My soul went to heaven, and luckily, there was a quill and parchment, and the first thing my ascended soul decided to do was WRITE THIS SCATHING REVIEW. Bad job."
+        },
+    {"description":
+        "GRAAAAAWWWRRRRR RRRRGGGHHHH HRGABLUURGH (I died and joined the army of the undead. 1 star.)"
+    },
+    {"description":
+        "I write to you a widow. Your potion killed my spouse!! Hope you have enough money to cover the funeral cost."
+        },
+    {"description":
+        "First."
+        },
+    {"description":
+        "Gross drinks, server smells weird, plus, I've been hospitalized for 1,562 years because the potion exploded in my face!!!"
+        },
+    {"description":
+        "I didn't know these drinks had alcohol in them."
+        },
+    {"description":
+        "Server rejected me. Lich King rejected my living essence harder."
+        },
+    {"description":
+        "Had to pay extra at the end for service!! What's that nonsense? The potion was mixed so poorly, it melted into a thousand spiders right on my tongue! Will never recover from the trauma!!"
+        },
+    {"description":
+        "Drink was delicious, design was ambitious... Potion was malicious. One star. Buy my mixtape."
+        },
+    {"description":
+        "I wanted crab cakes. I got crabs. But what made me give this dive bar 1 star? Mostly the crabs. Also, no crab cakes on the menu!"
+        }
+    ],
+    "threeStarReviews": [
+    {"description":
+        "The dragon took me gatdamn eyebrows! But I'm still alive and aimin’ to collect that gold and save the world. So thats cool."
+        },
+    {"description":
+        "I pray to heaven every night and day that the infection won't spread. The bite grows blacker. It grows fouler. But the loss of one limb won't stop this hero! Maybe two..  But not one!"
+        },
+    {"description":
+        "Was expecting a WoW factor... What I got was a MEH factor (More Extra Healing, Please). I guess that's a MEHP factor..."
+        },
+    {"description":
+        "Drink was... Absolutely disgusting. So bad, when I offered some to my cat, she didn't want any! And she loves to drink. Its a problem. Made me super jacked though."
+        },
+    {"description":
+        "I wanted something that would help me slay the Double Headed Ogre, Jim and Joe! Instead, I was so incredibly powerful... We fell in love! So. Not what I wanted... But I'm happy."
+        },
+    {"description":
+        "I compromise in neither style, nor grace!! Nor comfort!! Nor ease!! But this place made me! I had to compromise in ease!! But not style!! Nor grace!! So. I compromised on the score!!"
+        },
+    {"description":
+        "Dear Lordy Doody Howdy Lordy Doody Howdy Lordy Doody HOOWDY Doody Lordy! Very ok."
+        },
+    {"description":
+        "My kid is underaged, and when I tried to punish them for drinking at your bar... They shot me with a magic bolt! I guess your potion did what it was supposed to do.... But was it worth it?"
+        },
+    {"description":
+        "Quid Pro Quo will upgrade score to 5 for $5. K thnx."
+        },
+    {"description":
+        "Potion did its job. Fought chimera after chimera. Then I broke out in hives. Literal bee hives. My body is a vibrating eldritch horror."
+        }
+    ],
+    "fiveStarReviews": [
+    {"description":
+        "The look on that dragons face HOWDY DOODY I ain't never got such satisfaction! Kicked his scaley sit-cushions several ways to Sunday!"
+        },
+    {"description":
+        "I have never had a more valiant, gallant, graceful, courageous, outrageous, bodacious... I've run out of adjectives. But you get the idea! Good job, Barb!"
+        },
+    {"description":
+        "I deliver hot rhymes at a discounted rate, but this place deserves an EIGHT! Bummer the scale only slides to a five... Love... Clive???"
+        },
+    {"description":
+        "Potion made me buff. Got me swol. Absolutely yolked. Pursued them sick gains. I LITERALLY punched the butt off a Goblin King. Cool."
+        },
+    {"description":
+        "GG"
+        },
+    {"description":
+        "Literally, I have never been to a more amazing bar and LITERALLY I have never had a more amazing drink and LITERALLY I have never had a more INTENSE FIGHT WITH MY OWN INNER DEMONS! And literally? 5 stars."
+        },
+    {"description":
+        "I had a great drink and really enjoy overpraising!!! And exclamation points!!! So, fantastic job Barb!! The drink was delicious!! It did exactly what it was supposed to do!!! And then some!!! I'll be back again!!"
+        },
+    {"description":
+        "I see you. The secret puppet master pulling the strings. I see you pressing away at your buttons, the digital world reflected in your eyes. I commend you... Not only for trying... But for being truly alive..."
+        },
+    {"description":
+        "Noice noice noice noice noice NOICE NOICE NOICE NOICE NOICE NOICE TIGHT TIGHT TIGHT TIGHT TIIIIIIGHT TIGHT TIGHT noice."
+        },
+    {"description":
+        "I made a Quid Pro Woah account just to post this, and all I have to say is... 5 stars... 5 big ol thumbs up. I have a hand entirely made of thumbs. All of them love you. I love you."}
+    ]
 }

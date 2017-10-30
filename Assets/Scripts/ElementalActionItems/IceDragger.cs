@@ -9,5 +9,7 @@ public class IceDragger : Draggable {
 	protected override void DroppedOn (Mixing other) {
 		breakingIce.SetActive (true);
 		this.gameObject.SetActive (false);
+		ResetPosition ();
+		other.EnableOnMix (this.gameObject);
 	}
 }

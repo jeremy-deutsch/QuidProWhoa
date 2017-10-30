@@ -16,27 +16,31 @@ public class BlowTorch : MonoBehaviour {
 		if (flaming) {
 			if (counter <= 4) {
 				counter += Time.deltaTime;
-				Debug.Log ("mouse is being held" + counter);
-			}else if (counter > 4) {
+			}else if (counter < 6) {
 				counter += Time.deltaTime;
 				if (counter < 4.5) {
 					counter += Time.deltaTime;
-					GetComponent <SpriteRenderer> ().sprite = Resources.Load<Sprite> ("fire" + 1);
-					Debug.Log ("mouse is being held" + counter);
+					//GetComponent <SpriteRenderer> ().sprite = Resources.Load<Sprite> ("fire" + 1);
 				}else if (counter < 5) {
 					counter += Time.deltaTime;
-					GetComponent <SpriteRenderer> ().sprite = Resources.Load<Sprite> ("fire" + 2);
-					Debug.Log ("mouse is being held" + counter);
+					//GetComponent <SpriteRenderer> ().sprite = Resources.Load<Sprite> ("fire" + 2);
 				}else if (counter < 5.5) {
 					counter += Time.deltaTime;
-					GetComponent <SpriteRenderer> ().sprite = Resources.Load<Sprite> ("fire" + 3);
-					Debug.Log ("mouse is being held" + counter);
+					//GetComponent <SpriteRenderer> ().sprite = Resources.Load<Sprite> ("fire" + 3);
 				}
-			}else if (counter >= 6) {
-				counter += Time.deltaTime;
+			} else if (counter >= 6) {
 				Debug.Log ("Done Heating");
+				flaming = false;
 				mix.Action (Element.Fire);
 			}
+		}
+	}
+
+	void OnMouseUp () {
+		if (counter >= 6f && mix != null) {
+			counter = 0f;
+			this.gameObject.SetActive (false);
+			mix.EnableOnMix (this.gameObject);
 		}
 	}
 

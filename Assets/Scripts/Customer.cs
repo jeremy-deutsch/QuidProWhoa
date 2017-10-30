@@ -4,11 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Customer : MonoBehaviour {
+	public SpriteRenderer customerMugshot;
 	public Text customerInfo;
 	public Reviews reviews;
+	public Sprite[] mugshotImages;
 
 	private Element desiredElement;
 	private List<Buffs> desiredBuffs;
+	private int mugshotIndicesIndex = -1;
+	public int[] mugshotIndices;
+
+	void Awake() {
+		mugshotIndices = new int[mugshotImages.Length];
+		for (int i = 0; i < mugshotIndices.Length; i++) {
+			mugshotIndices [i] = i;
+		}
+		Utils.Shuffle<int> (mugshotIndices);
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +29,7 @@ public class Customer : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		
 	}
 
 	public void Serve (Drink drink) {
@@ -27,7 +40,7 @@ public class Customer : MonoBehaviour {
 		}
 
 		int prevCount = this.desiredBuffs.Count;
-		foreach (Buffs buff in drink.GetBuffs ()) {
+		foreach (Buffs buff in drink.GetAndClearBuffs ()) {
 			this.desiredBuffs.Remove (buff);
 		}
 
@@ -41,8 +54,17 @@ public class Customer : MonoBehaviour {
 	}
 
 	public void Enter () {
+		mugshotIndicesIndex++;
+		if (mugshotIndicesIndex > mugshotIndices.Length) {
+			mugshotIndicesIndex = 0;
+			Utils.Shuffle<int> (mugshotIndices);
+		}
+		customerMugshot.sprite = mugshotImages [mugshotIndices [mugshotIndicesIndex]];
+
 		desiredElement = (Element)Random.Range(0, System.Enum.GetValues(typeof(Element)).Length);
 		Debug.Log (desiredElement);
+
+		string info = " " + desiredElement;
 
 		desiredBuffs = new List<Buffs> ();
 		for (int i = 0; i < 2; i++) {
@@ -51,7 +73,8 @@ public class Customer : MonoBehaviour {
 		}
 
 		foreach (Buffs buff in desiredBuffs) {
-			Debug.Log (buff);
+			info += "\n " + buff;
 		}
+		customerInfo.text = info;
 	}
 }

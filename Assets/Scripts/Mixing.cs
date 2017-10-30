@@ -11,8 +11,11 @@ public class Mixing : MonoBehaviour {
 	public Button yourButton;
 	public Drink drink;
 
+	private Queue <GameObject> objectsToEnableOnMix;
+
 	// Use this for initialization
 	void Start () {
+		objectsToEnableOnMix = new Queue <GameObject> ();
 		Button btn = yourButton.GetComponent<Button>();
 		btn.onClick.AddListener(Mix);
 		this.ClearIngredients ();
@@ -38,12 +41,20 @@ public class Mixing : MonoBehaviour {
 
 	public void ClearIngredients () {
 		ingredients = new List<IngredientData> ();
+		finishedMixing = false;
+	}
+
+	public void EnableOnMix(GameObject obj) {
+		objectsToEnableOnMix.Enqueue (obj);
 	}
 
 	public void Mix() {
 		if (!finishedMixing) {
 			Debug.Log ("Must perform action on mixing bowl first");
 			return;
+		}
+		while (objectsToEnableOnMix.Count > 0) {
+			objectsToEnableOnMix.Dequeue ().SetActive (true);
 		}
 		Debug.Log (this.element);
 		Mixing mix = this.GetComponent<Mixing> ();

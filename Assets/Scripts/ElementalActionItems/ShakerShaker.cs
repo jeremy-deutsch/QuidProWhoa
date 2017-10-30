@@ -15,6 +15,10 @@ public class ShakerShaker : Draggable {
 	void Awake() {
 		this.gameObject.SetActive (false);
 	}
+		
+	void OnEnable () {
+		mixingBowl.gameObject.SetActive (false);
+	}
 
 	// track distance
 	void FixedUpdate () {
@@ -32,7 +36,9 @@ public class ShakerShaker : Draggable {
 		clickedOn = false;
 		if (distanceTraveled > howFarToShake) {
 			Debug.Log ("Shook enough: " + (int)distanceTraveled);
+			mixingBowl.gameObject.SetActive (true);
 			mixingBowl.Action (Element.Air);
+			this.gameObject.SetActive (false);
 		}
 		distanceTraveled = 0f;
 		lastPlace = Vector3.zero;

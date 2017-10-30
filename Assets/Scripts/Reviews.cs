@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 [System.Serializable]
@@ -36,23 +36,23 @@ public class MelpReviewData {
 		if (stars == 1) {
 			if (oneStarReviews == null) {
 				oneStarReviews = AllReviews.GetAllReviews (1);
-				Shuffle<MelpReviewData> (oneStarReviews);
+				Utils.Shuffle<MelpReviewData> (oneStarReviews);
 			}
 			oneCounter = (oneCounter + 1) % oneStarReviews.Length;
 			return oneStarReviews [oneCounter];
 		} else if (stars == 3) {
 			if (threeStarReviews == null) {
 				threeStarReviews = AllReviews.GetAllReviews (3);
-				Shuffle<MelpReviewData> (threeStarReviews);
+				Utils.Shuffle<MelpReviewData> (threeStarReviews);
 			}
-			threeCounter = (threeCounter + 1) % allReviews.Length;
+			threeCounter = (threeCounter + 1) % threeStarReviews.Length;
 			return threeStarReviews [threeCounter];
 		} else if (stars == 5) {
 			if (fiveStarReviews == null) {
 				fiveStarReviews = AllReviews.GetAllReviews (5);
-				Shuffle<MelpReviewData> (fiveStarReviews);
+				Utils.Shuffle<MelpReviewData> (fiveStarReviews);
 			}
-			fiveCounter = (fiveCounter + 1) % allReviews.Length;
+			fiveCounter = (fiveCounter + 1) % fiveStarReviews.Length;
 			return fiveStarReviews [fiveCounter];
 		} else {
 			return null;
@@ -84,6 +84,7 @@ public class AllReviews {
 
 public class Reviews : MonoBehaviour {
 	public Image starRating;
+	public Text melpText;
 
 	private int totalStars;
 	private int totalCustomers;
@@ -99,7 +100,9 @@ public class Reviews : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			SceneManager.LoadScene ("MainMenu");
+		}
 	}
 
 	public void WriteReview (int stars) {
@@ -124,5 +127,14 @@ public class Reviews : MonoBehaviour {
 		starRating.fillAmount = averageRating;
 		Debug.Log (totalStars);
 		Debug.Log (totalCustomers);
+
+		string desc = MelpReviewData.GetRandomReview (stars).description;
+		Debug.Log ("Review: " + desc);
+		string newMelpText = "";
+		for (int i = 0; i < stars; i++) {
+			newMelpText += "\u2605";
+		}
+		newMelpText += "\n" + desc;
+		melpText.text = newMelpText;
 	}
 }

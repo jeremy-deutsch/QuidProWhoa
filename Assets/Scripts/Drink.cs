@@ -8,6 +8,10 @@ public class Drink : MonoBehaviour {
 	private Element element;
 	private List<Buffs> buffs;
 
+	void Awake () {
+		buffs = new List<Buffs> ();
+	}
+
 	// Use this for initialization
 	void Start () {
 		
@@ -38,8 +42,10 @@ public class Drink : MonoBehaviour {
 		customer.Serve (this);
 	}
 
-	public List<Buffs> GetBuffs() {
-		return this.buffs;
+	public List<Buffs> GetAndClearBuffs() {
+		List<Buffs> result = this.buffs;
+		//this.buffs = new List<Buffs> ();
+		return result;
 	}
 
 	public Element GetElement() {
