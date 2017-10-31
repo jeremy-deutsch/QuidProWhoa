@@ -2078,8 +2078,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1299039065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 308, y: 173.5, z: 0}
-  m_LocalScale: {x: 0.77, y: 0.77, z: 0.77}
+  m_LocalPosition: {x: 293, y: 165, z: 0}
+  m_LocalScale: {x: 0.7325, y: 0.7325, z: 0.7325}
   m_Children:
   - {fileID: 193030868}
   - {fileID: 1615189597}
@@ -2637,7 +2637,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1760067851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -353.5, y: -31.799995, z: 0}
+  m_LocalPosition: {x: -340.9, y: -71.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1299039069}
@@ -2645,8 +2645,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 46.5, y: -31.8}
-  m_SizeDelta: {x: 70.4, y: 178.42}
+  m_AnchoredPosition: {x: 59.1, y: -71.5}
+  m_SizeDelta: {x: 64, y: 90}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1760067853
 MonoBehaviour:
@@ -2999,7 +2999,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.69, y: 3.08}
+  m_Size: {x: 3.61, y: 3.62}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -3011,7 +3011,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1896469135}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.18, y: 2.98, z: 0}
+  m_LocalPosition: {x: -9, y: 0.53, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 57488338}

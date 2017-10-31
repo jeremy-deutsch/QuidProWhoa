@@ -123,6 +123,8 @@ public class Ingredient : Draggable {
 	protected override void DroppedOn (Mixing other) {
 		other.Drop (this.data);
 		this.SetData ();
+		this.gameObject.SetActive (false);
+		other.EnableOnMix (this.gameObject);
 		this.ResetPosition ();
 	}
 }
