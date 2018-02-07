@@ -54,6 +54,9 @@ TagManager:
   - name: Barb
     uniqueID: 777197363
     locked: 0
+  - name: UI
+    uniqueID: 3321651489
+    locked: 0
   - name: Bar
     uniqueID: 1487595495
     locked: 0
@@ -62,7 +65,4 @@ TagManager:
     locked: 0
   - name: Interactables
     uniqueID: 1313229121
-    locked: 0
-  - name: UI
-    uniqueID: 3321651489
     locked: 0

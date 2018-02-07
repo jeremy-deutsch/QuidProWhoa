@@ -20,11 +20,6 @@ public class Mixing : MonoBehaviour {
 		btn.onClick.AddListener(Mix);
 		this.ClearIngredients ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	public void Drop (IngredientData ingredient) {
 		ingredients.Add (ingredient);

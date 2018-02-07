@@ -67,7 +67,8 @@ public class AllReviews {
 	public MelpReviewData[] fiveStarReviews;
 
 	public static MelpReviewData[] GetAllReviews(int stars) {
-		string dataAsJson = File.ReadAllText ("Assets/JSON/reviews.json");
+		TextAsset reviewJsonData = Resources.Load ("JSON/reviews") as TextAsset;
+		string dataAsJson = reviewJsonData.text; //File.ReadAllText ("Assets/JSON/reviews.json");
 		AllReviews ret = JsonUtility.FromJson<AllReviews> (dataAsJson);
 		if (stars == 1) {
 			return ret.oneStarReviews;

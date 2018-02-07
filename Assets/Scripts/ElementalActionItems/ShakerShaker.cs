@@ -34,6 +34,7 @@ public class ShakerShaker : Draggable {
 
 	protected override void OnMouseUp () {
 		clickedOn = false;
+	//	draggingSomething = false;
 		if (distanceTraveled > howFarToShake) {
 			Debug.Log ("Shook enough: " + (int)distanceTraveled);
 			mixingBowl.gameObject.SetActive (true);

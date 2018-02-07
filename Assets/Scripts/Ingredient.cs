@@ -1,8 +1,10 @@
 ﻿using System.IO;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IngredientSprites {
+
 	private Object[] sprites;
 
 	public IngredientSprites() {
@@ -26,7 +28,7 @@ public class IngredientData {
 	private static int counter = -1;
 
 	public string name;
-	public Buffs buff;
+	public string buff;
 
 	public static IngredientData GetRandomIngredient() {
 		if (allIngredients == null) {
@@ -43,7 +45,8 @@ public class AllIngredients {
 	public IngredientData[] ingredients;
 
 	public static IngredientData[] GetAllIngredients() {
-		string dataAsJson = File.ReadAllText ("Assets/JSON/ingredients.json"); 
+		TextAsset ingredientJsonData = Resources.Load ("JSON/ingredients") as TextAsset;
+		string dataAsJson = ingredientJsonData.text; //File.ReadAllText ("Assets/JSON/ingredients.json"); 
 		AllIngredients ret = JsonUtility.FromJson<AllIngredients> (dataAsJson);
 		return ret.ingredients;
 	}
@@ -52,18 +55,27 @@ public class AllIngredients {
 public class Ingredient : Draggable {
 	
 	public static IngredientSprites ingredientSprites;
+	public Text ingredientNameText;
+	public Text ingredientInfoText;
 	public float turningFrequency = 6f;
 	public float turningAllowance = 2f;
 
+	public Sprite[] sprites; // set these in the prefab
+
 	private IngredientData data;
+
 	private Quaternion normalAngle;
 	private bool turningRight = false;
 	private float rotationTolerance = 0f;
+	private float negativeTurningAllowance;
+	private float turningFrequencyTimesTurningAllowance;
+
+	private float spriteHeight;
+
 	private SpriteRenderer spriteRenderer;
 	private string originalSortingLayerName;
 
-	private float negativeTurningAllowance;
-	private float turningFrequencyTimesTurningAllowance;
+
 
 	// Use this for initialization
 	protected override void Start () {
@@ -77,7 +89,7 @@ public class Ingredient : Draggable {
 		originalSortingLayerName = spriteRenderer.sortingLayerName;
 
 		this.SetData ();
-		transform.rotation = normalAngle;
+		normalAngle = transform.rotation;
 
 		negativeTurningAllowance = turningAllowance * -1f;
 		turningFrequencyTimesTurningAllowance = turningFrequency * turningAllowance;
@@ -107,17 +119,32 @@ public class Ingredient : Draggable {
 		}
 	}
 
+	protected override void HoverBegin () {
+		ingredientNameText.gameObject.SetActive (true);
+		ingredientNameText.transform.position = transform.position + new Vector3 (0f, (spriteHeight / 2f) + 1f);
+		ingredientNameText.text = data.name.ToUpper ();
+		ingredientInfoText.gameObject.SetActive (true);
+		ingredientInfoText.transform.position = transform.position - new Vector3 (0f, (spriteHeight / 2f) + 1f);
+		ingredientInfoText.text = data.buff;
+	}
+
+	protected override void HoverEnd () {
+		ingredientNameText.gameObject.SetActive (false);
+		ingredientInfoText.gameObject.SetActive (false);
+	}
+
 	protected override void OnMouseUp () {
 		transform.rotation = normalAngle;
 		spriteRenderer.sortingLayerName = originalSortingLayerName;
 		base.OnMouseUp ();
 	}
 
-	private void SetData() {
+	private void SetData () {
 		data = IngredientData.GetRandomIngredient ();
 		this.spriteRenderer.sprite = ingredientSprites.GetSpriteFromName (data.name);
 		Vector3 newSize = spriteRenderer.sprite.bounds.size;
 		GetComponent <BoxCollider2D> ().size = new Vector2 (newSize.x, newSize.y);
+		spriteHeight = newSize.y;
 	}
 
 	protected override void DroppedOn (Mixing other) {
@@ -126,5 +153,15 @@ public class Ingredient : Draggable {
 		this.gameObject.SetActive (false);
 		other.EnableOnMix (this.gameObject);
 		this.ResetPosition ();
+	}
+
+	private Sprite GetSpriteFromName(string name) {
+		foreach (Sprite s in sprites) {
+			if (s.name == name) {
+				return s;
+			}
+		}
+
+		return null;
 	}
 }

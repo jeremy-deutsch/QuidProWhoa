@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50009091309595978}
   - component: {fileID: 212856883005374736}
   m_Layer: 0
-  m_Name: Ingridient
+  m_Name: IngridientRectTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

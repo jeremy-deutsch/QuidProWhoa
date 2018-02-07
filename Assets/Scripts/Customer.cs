@@ -10,9 +10,11 @@ public class Customer : MonoBehaviour {
 	public Sprite[] mugshotImages;
 
 	private Element desiredElement;
-	private List<Buffs> desiredBuffs;
+	private List<string> desiredBuffs;
 	private int mugshotIndicesIndex = -1;
 	public int[] mugshotIndices;
+	private int buffQueueIndex;
+	private string[] buffQueue;
 
 	void Awake() {
 		mugshotIndices = new int[mugshotImages.Length];
@@ -20,6 +22,14 @@ public class Customer : MonoBehaviour {
 			mugshotIndices [i] = i;
 		}
 		Utils.Shuffle<int> (mugshotIndices);
+		// use a queue of 2 of every buff, so that the demands are relatively even
+		buffQueue = new string[(System.Enum.GetValues (typeof(Buffs)).Length) * 2];
+		for (int i = 0; i < System.Enum.GetValues (typeof(Buffs)).Length; i++) {
+			buffQueue [2 * i] = ((Buffs)i).ToString ();
+			buffQueue [(2 * i) + 1] = ((Buffs)i).ToString ();
+		}
+		buffQueueIndex = 0;
+		Utils.Shuffle<string> (buffQueue);
 	}
 
 	// Use this for initialization
@@ -40,7 +50,7 @@ public class Customer : MonoBehaviour {
 		}
 
 		int prevCount = this.desiredBuffs.Count;
-		foreach (Buffs buff in drink.GetAndClearBuffs ()) {
+		foreach (string buff in drink.GetAndClearBuffs ()) {
 			this.desiredBuffs.Remove (buff);
 		}
 
@@ -66,13 +76,17 @@ public class Customer : MonoBehaviour {
 
 		string info = " " + desiredElement;
 
-		desiredBuffs = new List<Buffs> ();
+		desiredBuffs = new List<string> ();
 		for (int i = 0; i < 2; i++) {
-			Buffs randomBuff = (Buffs)Random.Range (0, System.Enum.GetValues (typeof(Buffs)).Length);
-			desiredBuffs.Add (randomBuff);
+			desiredBuffs.Add (buffQueue[buffQueueIndex]);
+			buffQueueIndex++;
+			if (buffQueueIndex >= buffQueue.Length) {
+				buffQueueIndex = 0;
+				Utils.Shuffle<string> (buffQueue);
+			}
 		}
 
-		foreach (Buffs buff in desiredBuffs) {
+		foreach (string buff in desiredBuffs) { 
 			info += "\n " + buff;
 		}
 		customerInfo.text = info;

@@ -3,8 +3,11 @@ using UnityEngine;
 
 public abstract class Draggable : MonoBehaviour {
     
-	protected bool clickedOn;
+	protected bool clickedOn = false;
+	protected bool mouseIsOver = false;
 	protected Vector3 startingPosition;
+
+	private static bool draggingSomething = false;
 
 	private Mixing bucket = null;
 	private Vector3 offset;
@@ -18,33 +21,45 @@ public abstract class Draggable : MonoBehaviour {
 	}
 
 	void OnMouseEnter () {
-		if (!clickedOn) {
+		if (!clickedOn && !draggingSomething) {
 			transform.localScale = normalSize * 1.2f;
+			mouseIsOver = true;
+			HoverBegin ();
 		}
 	}
+
+	// Called when the mouse begins hovering without dragging the object
+	protected virtual void HoverBegin () {}
 
 	void OnMouseExit () {
 		if (!clickedOn) {
 			transform.localScale = normalSize;
+			mouseIsOver = false;
+			HoverEnd ();
 		}
 	}
+
+	// Called when the mouse moves away or begins dragging the object
+	protected virtual void HoverEnd () {}
 
 	void OnMouseDown () {
 		offset = this.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		transform.localScale = normalSize * 0.9f;
 		clickedOn = true;
+		draggingSomething = true;
+		HoverEnd ();
 	}
 
 	protected virtual void OnMouseUp () {
 		clickedOn = false;
-
+		draggingSomething = false;
 		if (bucket == null) {
 			ResetPosition ();
-			return;
+		} else {
+			// bucket.Drop (this.GetComponent<Naming> ());
+			DroppedOn (bucket);
 		}
 
-		// bucket.Drop (this.GetComponent<Naming> ());
-		DroppedOn (bucket);
 	}
 
 	void OnMouseDrag () {
@@ -72,5 +87,6 @@ public abstract class Draggable : MonoBehaviour {
 	public void ResetPosition () {
 		transform.position = startingPosition;
 		transform.localScale = normalSize;
+		draggingSomething = false;
 	}
 }

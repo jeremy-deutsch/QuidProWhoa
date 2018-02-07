@@ -6,26 +6,16 @@ public class Drink : MonoBehaviour {
 	public Customer customer;
 
 	private Element element;
-	private List<Buffs> buffs;
+	private List<string> buffs;
 
 	void Awake () {
-		buffs = new List<Buffs> ();
-	}
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		buffs = new List<string> ();
 	}
 
 	public void Mix(Element element, List<IngredientData> ingredients) {
 		this.name = "";
 		this.element = element;
-		this.buffs = new List<Buffs> ();
+		this.buffs = new List<string> ();
 
 		foreach (IngredientData ingredient in ingredients) {
 			this.buffs.Add (ingredient.buff);
@@ -35,15 +25,15 @@ public class Drink : MonoBehaviour {
 
 		Debug.Log ("Customer has been served:");
 		Debug.Log (this.name);
-		foreach (Buffs buff in this.buffs) {
+		foreach (string buff in this.buffs) {
 			Debug.Log (buff);
 		}
 
 		customer.Serve (this);
 	}
 
-	public List<Buffs> GetAndClearBuffs() {
-		List<Buffs> result = this.buffs;
+	public List<string> GetAndClearBuffs() {
+		List<string> result = this.buffs;
 		//this.buffs = new List<Buffs> ();
 		return result;
 	}
